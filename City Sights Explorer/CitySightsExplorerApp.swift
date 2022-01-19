@@ -1,5 +1,5 @@
 //
-//  City_Sights_ExplorerApp.swift
+//  CitySightsExplorerApp.swift
 //  City Sights Explorer
 //
 //  Created by Vu Trinh on 1/19/22.
@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct City_Sights_ExplorerApp: App {
+struct CitySightsExplorerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
         }
     }
 }
