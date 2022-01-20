@@ -7,34 +7,32 @@
 
 import Foundation
 
-struct Business: Decodable {
+struct Business: Decodable, Identifiable {
+    var rating: Double?
+    var price: String?
+    var phone: String?
     var id: String?
     var alias: String?
-    var name: String?
-    var image_url: String?
-    var url: String?
     var is_closed: Bool?
-    var review_count: Int?
     var categories:[Category]?
-    var rating: Double?
-    var coordinate: Coordinate?
-    var transactions: [String]?
-    var price: String?
+    var review_count: Int?
+    var name: String?
+    var url: String?
+    var coordinates: Coordinate?
+    var image_url: String?
     var location: Location?
-    var phone: String?
-    var display_phone: String?
     var distance: Double?
+    var transactions: [String]?
 }
 
 struct Location: Decodable {
-    var address1: String?
+    var city: String?
+    var country: String?
     var address2: String?
     var address3: String?
-    var city: String?
-    var zip_code: String?
-    var country: String?
     var state: String?
-    var display_address: [String]?
+    var address1: String?
+    var zip_code: String?
 }
 
 struct Category: Decodable {

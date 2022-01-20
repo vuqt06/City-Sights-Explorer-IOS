@@ -6,9 +6,29 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct LaunchView: View {
+    @EnvironmentObject var model:ContentModel
     var body: some View {
+        // Detect the authorization status of geolocating the user
+        
+        if model.authorizatonStatus == .notDetermined {
+            // If undetermined, show onboarding
+        }
+        else if model.authorizatonStatus == CLAuthorizationStatus.authorizedWhenInUse || model.authorizatonStatus == CLAuthorizationStatus.authorizedAlways {
+            // If aproved, show home view
+            HomeView()
+        }
+        else {
+            // If denied, show denied view
+        }
+        
+        
+        
+        
+        
+        
         Text("Hello, world!")
             .padding()
     }
@@ -16,6 +36,6 @@ struct LaunchView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView()
+        LaunchView().environmentObject(ContentModel())
     }
 }

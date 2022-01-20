@@ -12,6 +12,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     var locationManager = CLLocationManager()
     
+    @Published var authorizatonStatus = CLAuthorizationStatus.notDetermined
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
     
@@ -30,6 +31,8 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     // MARK - Location Manager Delegate Methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        // Update the authorizationStatus property
+        authorizatonStatus = locationManager.authorizationStatus
         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse {
             // We have permission
             // TODO: Start geolocation the user after we get permission
@@ -66,7 +69,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         urlComponents?.queryItems = [
             URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
             URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
-            URLQueryItem(name: "categories", value: String(category)),
+            URLQueryItem(name: "categories", value: category),
             URLQueryItem(name: "limit", value: "6")
         ]
         
@@ -81,7 +84,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             let session = URLSession.shared
             
             // Create Data Task
-            let dataTask = session.dataTask(with: request) { data, response, error in
+            let dataTask = session.dataTask(with: request) { (data, response, error) in
                 // Check that there is not error
                 if error == nil {
                     
