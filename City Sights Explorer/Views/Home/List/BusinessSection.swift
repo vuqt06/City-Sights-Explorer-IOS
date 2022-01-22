@@ -13,9 +13,8 @@ struct BusinessSection: View {
     var body: some View {
         Section(header: BusinessSectionHeader(title: title)) {
             ForEach(businesses) {
-                sight in
-                Text(sight.name ?? "")
-                Divider()
+                business in
+                BusinessRow(business: business)
             }
         }
     }

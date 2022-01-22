@@ -70,7 +70,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
             URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
             URLQueryItem(name: "categories", value: category),
-            URLQueryItem(name: "limit", value: "6")
+            URLQueryItem(name: "limit", value: "20")
         ]
         
         let url = urlComponents?.url
@@ -92,14 +92,24 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                         // Parse JSON
                         let decoder = JSONDecoder()
                         let result = try decoder.decode(BusinessSearch.self, from: data!)
-                        print(result)
+                        
+                        // Sort businesses
+                        let businesses = result.businesses.sorted{ b1, b2 in
+                            return b1.distance ?? 0 < b2.distance ?? 0
+                        }
+                        
+                        // Call get image data
+                        for business in businesses {
+                            business.getImageData()
+                        }
+                        
                         DispatchQueue.main.async {
                             // Assign results to the approriate property
                             if category == Constants.sightsKey {
-                                self.sights = result.businesses
+                                self.sights = businesses
                             }
                             else if category == Constants.restaurantsKey {
-                                self.restaurants = result.businesses
+                                self.restaurants = businesses
                             }
                         }
                         
