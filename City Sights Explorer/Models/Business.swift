@@ -15,6 +15,7 @@ class Business: Decodable, Identifiable, ObservableObject {
     var rating: Double?
     var price: String?
     var phone: String?
+    var display_phone: String?
     var id: String?
     var alias: String?
     var is_closed: Bool?
@@ -32,6 +33,7 @@ class Business: Decodable, Identifiable, ObservableObject {
         case rating
         case price
         case phone
+        case display_phone
         case id
         case alias
         case is_closed
@@ -79,6 +81,7 @@ struct Location: Decodable {
     var state: String?
     var address1: String?
     var zip_code: String?
+    var display_address: [String]?
 }
 
 struct Category: Decodable {

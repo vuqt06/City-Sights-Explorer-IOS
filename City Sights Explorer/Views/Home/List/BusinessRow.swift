@@ -35,6 +35,6 @@ struct BusinessRow: View {
             }
             .padding([.top])
             Divider()
-        }
+        }.foregroundColor(.black)
     }
 }
