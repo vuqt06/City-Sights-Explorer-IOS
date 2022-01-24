@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520C1C48279EED7700D1383A /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C1C47279EED7700D1383A /* BusinessMap.swift */; };
 		5215C698279BAC8300856EF6 /* BusinessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215C697279BAC8300856EF6 /* BusinessRow.swift */; };
 		5222581C2798AA84006F1AF3 /* CitySightsExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222581B2798AA84006F1AF3 /* CitySightsExplorerApp.swift */; };
 		5222581E2798AA84006F1AF3 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5222581D2798AA84006F1AF3 /* LaunchView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		520C1C47279EED7700D1383A /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 		5215C697279BAC8300856EF6 /* BusinessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRow.swift; sourceTree = "<group>"; };
 		522258182798AA84006F1AF3 /* City Sights Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Sights Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5222581B2798AA84006F1AF3 /* CitySightsExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySightsExplorerApp.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520C1C46279EED5600D1383A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				520C1C47279EED7700D1383A /* BusinessMap.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		5222580F2798AA84006F1AF3 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +139,7 @@
 		526B91402799B169005E0D8D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				520C1C46279EED5600D1383A /* Map */,
 				526B91452799B1CA005E0D8D /* HomeView.swift */,
 				526B91472799C097005E0D8D /* List */,
 			);
@@ -248,6 +259,7 @@
 				5222581C2798AA84006F1AF3 /* CitySightsExplorerApp.swift in Sources */,
 				522258312798B1D8006F1AF3 /* BusinessSearch.swift in Sources */,
 				526B91492799C0A9005E0D8D /* BusinessList.swift in Sources */,
+				520C1C48279EED7700D1383A /* BusinessMap.swift in Sources */,
 				526B914D2799C38A005E0D8D /* BusinessSection.swift in Sources */,
 				5222582D2798AAFE006F1AF3 /* ContentModel.swift in Sources */,
 				5256329A2798B6D300B44B8A /* Constants.swift in Sources */,
