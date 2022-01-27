@@ -19,11 +19,14 @@ struct HomeView: View {
                     VStack {
                         HStack {
                             Image(systemName: "location")
-                            Text("San Diego")
+                            Text("Tokyo")
                             Spacer()
-                            Button("Switch to map view") {
+                            Button {
                                 self.isMapShowing = true;
-                            }
+                            } label: {
+                                Image(systemName: "map.fill")
+                            }.foregroundColor(.black)
+                            
                         }
                         BusinessList()
                         Divider()
@@ -31,13 +34,37 @@ struct HomeView: View {
                         .navigationBarHidden(true)
                 }
                 else {
-                    // Show map view
-                    BusinessMap(selcectedBusiness: $selectedBusiness)
-                        .ignoresSafeArea()
-                        .sheet(item: $selectedBusiness) { business in
-                            // Create business detail view instance and pass in selected business
-                            BusinessDetailView(business: business)
+                    ZStack(alignment: .top) {
+                        // Show map view
+                        BusinessMap(selcectedBusiness: $selectedBusiness)
+                            .ignoresSafeArea()
+                            .sheet(item: $selectedBusiness) { business in
+                                // Create business detail view instance and pass in selected business
+                                BusinessDetailView(business: business)
+                            }
+                        
+                        ZStack() {
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                                .frame(height: 48)
+                            
+                            HStack {
+                                Image(systemName: "location")
+                                Text("Tokyo")
+                                Spacer()
+                                Button {
+                                    self.isMapShowing = false;
+                                } label: {
+                                    Image(systemName: "list.dash")
+                                }
+                                .foregroundColor(.black)
+                            }
+                            .padding()
                         }
+                        .padding()
+                    }.navigationBarHidden(true)
+                   
                 }
             }
             // Determine if we should show map or list
