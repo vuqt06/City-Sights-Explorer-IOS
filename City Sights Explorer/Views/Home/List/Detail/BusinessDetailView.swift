@@ -10,6 +10,7 @@ import SwiftUI
 struct BusinessDetailView: View {
     var business: Business
     @State private var showDirectons = false
+    private let turquoise = Color(red: 55/255, green: 197/255, blue: 192/255)
     var body: some View {
         VStack(alignment: .leading) {
             VStack(spacing: 0) {
@@ -91,7 +92,7 @@ struct BusinessDetailView: View {
                 ZStack{
                     Rectangle()
                         .frame(height: 48)
-                        .foregroundColor(.blue)
+                        .foregroundColor(turquoise)
                         .cornerRadius(10)
                     
                     Text("Get Directions")

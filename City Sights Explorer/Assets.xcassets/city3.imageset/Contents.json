@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "smart-city-isometric-illustration-intelligent-buildings-mobile-phone-isolated-144650640.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

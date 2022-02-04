@@ -15,6 +15,7 @@ struct LaunchView: View {
         
         if model.authorizatonStatus == .notDetermined {
             // If undetermined, show onboarding
+            OnboardingView()
         }
         else if model.authorizatonStatus == CLAuthorizationStatus.authorizedWhenInUse || model.authorizatonStatus == CLAuthorizationStatus.authorizedAlways {
             // If aproved, show home view
@@ -22,6 +23,7 @@ struct LaunchView: View {
         }
         else {
             // If denied, show denied view
+            LocationDeniedView()
         }
     }
 }
