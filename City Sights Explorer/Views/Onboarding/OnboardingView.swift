@@ -62,7 +62,7 @@ struct OnboardingView: View {
                         .foregroundColor(turquoise)
                         .frame(height: 48)
                         .cornerRadius(5)
-                    Text(tabSelection == 0 ? "Next" : "Get My Location")
+                    Text(tabSelection == 0 ? "Get Started" : "Get My Location")
                         .bold()
                         .padding()
                 }.foregroundColor(.white)

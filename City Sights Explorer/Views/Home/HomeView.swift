@@ -19,7 +19,7 @@ struct HomeView: View {
                     VStack {
                         HStack {
                             Image(systemName: "location")
-                            Text("Tokyo")
+                            Text(model.placeMark?.locality ?? "")
                             Spacer()
                             Button {
                                 self.isMapShowing = true;
@@ -28,7 +28,16 @@ struct HomeView: View {
                             }.foregroundColor(.black)
                             
                         }
-                        BusinessList()
+                        Divider()
+                        ZStack(alignment: .top) {
+                            BusinessList()
+                            
+                            HStack {
+                                Spacer()
+                                YelpButton(link: "https://yelp.us")
+                                    .padding(.trailing, -20)
+                            }
+                        }
                         Divider()
                     }.padding(.horizontal)
                         .navigationBarHidden(true)
@@ -51,7 +60,7 @@ struct HomeView: View {
                             
                             HStack {
                                 Image(systemName: "location")
-                                Text("Tokyo")
+                                Text(model.placeMark?.locality ?? "")
                                 Spacer()
                                 Button {
                                     self.isMapShowing = false;

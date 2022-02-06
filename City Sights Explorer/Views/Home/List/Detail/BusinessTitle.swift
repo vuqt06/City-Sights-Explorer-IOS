@@ -13,7 +13,8 @@ struct BusinessTitle: View {
         VStack(alignment: .leading) {
             // Business Name
             Text(business.name!)
-                .font(.largeTitle)
+                .font(.title2)
+                .bold()
             // Address
             if business.location?.display_address != nil {
                 ForEach(business.location!.display_address!, id: \.self) {
