@@ -22,10 +22,10 @@ struct OnboardingView: View {
                     Image("city1")
                         .resizable()
                         .scaledToFit()
-                    Text("Welcome to City Sights Explorer")
+                    Text("Welcome to City Explorer")
                         .bold()
                         .font(.title)
-                    Text("City Sights Explorer helps you discover your city")
+                    Text("City Explorer helps you discover your city!")
                        
                 }.multilineTextAlignment(.center)
                 .tag(0)
@@ -37,7 +37,7 @@ struct OnboardingView: View {
                     Text("Ready to discover your city?")
                         .bold()
                         .font(.title)
-                    Text("We will show you the best restaurants, sights, and hotels!")
+                    Text("We will show you the best restaurants, sights, hotels, and fitness centers!")
                         
                 }.multilineTextAlignment(.center)
                     .padding()

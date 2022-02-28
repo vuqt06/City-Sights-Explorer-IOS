@@ -15,6 +15,8 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var authorizatonStatus = CLAuthorizationStatus.notDetermined
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
+    @Published var hotels = [Business]()
+    @Published var fitness = [Business]()
     @Published var placeMark: CLPlacemark?
     
     override init() {
@@ -65,6 +67,8 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             // If we have the coordinates of the user, send it to Yelp API
             getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
             getBusinesses(category: Constants.sightsKey, location: userLocation!)
+            getBusinesses(category: Constants.hotelsKey, location: userLocation!)
+            getBusinesses(category: Constants.fitnessKey, location: userLocation!)
         }
 
     }
@@ -116,11 +120,18 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                         
                         DispatchQueue.main.async {
                             // Assign results to the approriate property
+                            print(category)
                             if category == Constants.sightsKey {
                                 self.sights = businesses
                             }
                             else if category == Constants.restaurantsKey {
                                 self.restaurants = businesses
+                            }
+                            else if category == Constants.hotelsKey {
+                                self.hotels = businesses
+                            }
+                            else if category == Constants.fitnessKey {
+                                self.fitness = businesses
                             }
                         }
                         

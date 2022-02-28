@@ -9,12 +9,15 @@ import SwiftUI
 
 struct BusinessList: View {
     @EnvironmentObject var model:ContentModel
+    var title: String
+    var businesses: [Business]
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVStack(alignment: .leading, pinnedViews: [.sectionHeaders]) {
-                BusinessSection(title: "Restaurants", businesses: model.restaurants)
-                
-                BusinessSection(title: "Sights", businesses: model.sights)
+                //BusinessSection(title: "Restaurants", businesses: model.restaurants)
+                BusinessSection(title: title, businesses: businesses)
+                //BusinessSection(title: "Sights", businesses: model.sights)
+                //BusinessSection(title: "Hotels", businesses: model.hotels)
                 
             }
         }
@@ -23,6 +26,6 @@ struct BusinessList: View {
 
 struct BusinessList_Previews: PreviewProvider {
     static var previews: some View {
-        BusinessList()
+        BusinessList(title: "", businesses: [Business]())
     }
 }

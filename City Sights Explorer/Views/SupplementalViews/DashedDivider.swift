@@ -17,7 +17,7 @@ struct DashedDivider: View {
                 path.addLine(to: CGPoint(x: geo.size.width, y: 0))
             }.stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
                 .foregroundColor(.gray)
-        }.frame(height: 1)
+        }.frame(height: 0.5)
     }
 }
 

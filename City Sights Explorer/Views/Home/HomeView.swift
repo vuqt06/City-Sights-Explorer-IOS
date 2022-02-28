@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject var model:ContentModel
     @State var isMapShowing = false
     @State var selectedBusiness:Business?
+    @State var tabSelected = 0
     var body: some View {
         if model.restaurants.count != 0 || model.sights.count != 0 {
             NavigationView {
@@ -30,7 +31,43 @@ struct HomeView: View {
                         }
                         Divider()
                         ZStack(alignment: .top) {
-                            BusinessList()
+                            TabView(selection: $tabSelected) {
+                                BusinessList(title: "Restaurants", businesses: model.restaurants)
+                                    .tabItem{
+                                        VStack {
+                                            Image(systemName: "fork.knife")
+                                            Text("Restaurants")
+                                        }
+                                    }
+                                    .tag(0)
+                                BusinessList(title: "Sights", businesses: model.sights)
+                                    .tabItem{
+                                        VStack {
+                                            Image(systemName: "building.columns")
+                                            Text("Sights")
+                                        }
+                                    }
+                                    .tag(1)
+                                
+                                BusinessList(title: "Hotels", businesses: model.hotels)
+                                    .tabItem{
+                                        VStack {
+                                            Image(systemName: "building")
+                                            Text("Hotels")
+                                        }
+                                    }
+                                    .tag(2)
+                                
+                                BusinessList(title: "Fitness", businesses: model.fitness)
+                                    .tabItem{
+                                        VStack {
+                                            Image(systemName: "figure.walk")
+                                            Text("Fitness")
+                                        }
+                                    }
+                                    .tag(2)
+                            }
+                            //BusinessList()
                             
                             HStack {
                                 Spacer()
@@ -39,8 +76,10 @@ struct HomeView: View {
                             }
                         }
                         Divider()
+                        Spacer()
                     }.padding(.horizontal)
                         .navigationBarHidden(true)
+                        .navigationBarTitleDisplayMode(.inline)
                 }
                 else {
                     ZStack(alignment: .top) {
@@ -73,6 +112,7 @@ struct HomeView: View {
                         }
                         .padding()
                     }.navigationBarHidden(true)
+                        .statusBar(hidden: true)
                    
                 }
             }

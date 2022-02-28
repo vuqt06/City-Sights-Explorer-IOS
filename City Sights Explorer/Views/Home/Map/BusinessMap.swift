@@ -15,7 +15,7 @@ struct BusinessMap: UIViewRepresentable {
     var locations:[MKPointAnnotation] {
         var annotations = [MKPointAnnotation]()
         // Create a set of annotations from our list of business
-        for business in model.restaurants + model.sights {
+        for business in model.restaurants + model.sights + model.hotels {
             // If business has a lat/long
             if let lat = business.coordinates?.latitude, let long = business.coordinates?.longitude {
                 // Create a new annotation
