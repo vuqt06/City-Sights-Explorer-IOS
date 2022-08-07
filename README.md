@@ -1,6 +1,6 @@
 # City-Sights-Explorer-IOS
 
-The apps was built with SwiftUI to create an iteractive interface which collects and processes user data to display personalized content.
+The app was built with SwiftUI to create an iteractive interface which collects and processes user data to display personalized content.
 Having integrated various advanced features such as MapKit, CoreLocation, and various button functionalities, I aim to desgin an user-friendly app.
 
 ![Group 1](https://user-images.githubusercontent.com/86247337/159610322-ddfa26d8-365d-40fe-8580-658c496416a3.jpg)
